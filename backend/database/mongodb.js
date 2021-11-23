@@ -8,8 +8,13 @@ const database = "file-sharing";
 
 const url = `mongodb://${user}:${password}@${host}:${port}/${database}?authSource=admin`;
 
-const db = mongoose.connect(url).then(() => {
+const db = mongoose
+  .connect(url)
+  .then(() => {
     console.log(`MongoDB connected.`);
-});
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 module.exports = db;
