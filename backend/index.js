@@ -39,7 +39,7 @@ app.get("/file/", async (req, res) => {
 
 app.get("/file/:_id", async (req, res) => {
   const fileId = req.params._id;
-  const password = req.query.password;
+  const password = req.query.password ?? req.params.password;
 
   try {
     const file = await fileSchema.getFile(fileId, password);
