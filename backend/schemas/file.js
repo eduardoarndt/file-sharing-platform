@@ -30,7 +30,7 @@ async function getFile(fileId, filePassword) {
 }
 
 async function getAllFiles() {
-  const files = await FileModel.find();
+  const files = await FileModel.find({}, "title extension");
   return files;
 }
 
